@@ -12,9 +12,7 @@ import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class ControlView extends javax.swing.JFrame {
@@ -245,14 +243,21 @@ public class ControlView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
-        try {
+        int dialogButton = dialogButton = JOptionPane.YES_NO_OPTION;;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você gostária de minimizar o programa?", "Aviso", dialogButton);
+        if (dialogResult == 0) {
+            try {
+                this.jLabel7.setText("Status: Online");
+                //Calling the method makeIcon
+                makeIcon();
+                //Setting view to disapears
+                this.setVisible(false);
+            } catch (AWTException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+        if (dialogResult == 1) {
             this.jLabel7.setText("Status: Online");
-            //Calling the method makeIcon
-            makeIcon();
-            //Setting view to disapears
-            this.setVisible(false);
-        } catch (AWTException ex) {
-            JOptionPane.showMessageDialog(null, ex);
         }
         openConnection = true;
         try {
@@ -329,7 +334,6 @@ public class ControlView extends javax.swing.JFrame {
 
         PopupMenu menu = new PopupMenu();
         JOptionPane.showMessageDialog(null, "O sistema está conectado, ativando modo serviço.");
-
         if (this.openConnection = true) {
             MenuItem closeConnection = new MenuItem("Close Connection");
             closeConnection.addActionListener((ActionEvent e) -> {
@@ -353,19 +357,19 @@ public class ControlView extends javax.swing.JFrame {
         icon.setImageAutoSize(true);
 
         tray.add(icon);
+
     }
 
     //Here i create a method to stop the connection. button event doens't work so i create that
     public void stopConnection() {
         openConnection = false;
-        //Setting my threads for null to stop the action
         cpThread = null;
         hdThread = null;
         ramThread = null;
         this.jLabel7.setText("Status: Offline");
     }
-    
-    //Here i create a method to open the interface the connection. button event doens't work so i create that
+
+    //Here i create a method to open the interface, button event doens't work so i create that
     public void openInterface() {
         this.setVisible(true);
         this.jLabel2.setText("Olá, " + User.name + ". Bem vindo ao DMS!");
@@ -374,6 +378,7 @@ public class ControlView extends javax.swing.JFrame {
         } else {
             this.jLabel7.setText("Status: Offline");
         }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
