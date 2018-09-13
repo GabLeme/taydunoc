@@ -7,8 +7,8 @@ public class User {
     ConnectionFactory con = new ConnectionFactory();
     
     //Add attributes to entity user
-    public String name;
-    public Integer codUser;
+    public static String name;
+    public static Integer codUser;
     
     public String getName(){
         return name;

@@ -3,6 +3,18 @@ package com.taydu.view;
 import com.taydu.collector.dao.CpuDAO;
 import com.taydu.collector.dao.HardDiskDAO;
 import com.taydu.collector.dao.MemoryDAO;
+import com.taydu.entity.User;
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControlView extends javax.swing.JFrame {
@@ -10,6 +22,9 @@ public class ControlView extends javax.swing.JFrame {
     CpuDAO cp = new CpuDAO();
     HardDiskDAO hd = new HardDiskDAO();
     MemoryDAO my = new MemoryDAO();
+
+    //Creating variable to know if my connection are open
+    public boolean openConnection = false;
 
     /**
      * Creates new form ControlView
@@ -57,47 +72,162 @@ public class ControlView extends javax.swing.JFrame {
         jUserName = new javax.swing.JLabel();
         jStart = new javax.swing.JButton();
         jStop = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jStart.setText("Conectar");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.setMaximumSize(new java.awt.Dimension(855, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(855, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(855, 500));
+
+        jStart.setBackground(new java.awt.Color(90, 90, 90));
+        jStart.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
+        jStart.setText("Open Connection");
+        jStart.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jStart.setContentAreaFilled(false);
+        jStart.setMaximumSize(new java.awt.Dimension(160, 45));
+        jStart.setMinimumSize(new java.awt.Dimension(160, 45));
+        jStart.setPreferredSize(new java.awt.Dimension(160, 45));
         jStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jStartActionPerformed(evt);
             }
         });
 
-        jStop.setText("Parar");
+        jStop.setBackground(new java.awt.Color(137, 137, 137));
+        jStop.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
+        jStop.setText("Close Connection");
+        jStop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jStop.setContentAreaFilled(false);
+        jStop.setMaximumSize(new java.awt.Dimension(160, 45));
+        jStop.setMinimumSize(new java.awt.Dimension(160, 45));
+        jStop.setPreferredSize(new java.awt.Dimension(160, 45));
         jStop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jStopActionPerformed(evt);
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/right-design.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resize-logo.jpg"))); // NOI18N
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel2.setText("Olá, XPTO. Bem-vindo ao DMS!");
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 25)); // NOI18N
+        jLabel4.setText("Digital Monitoring System");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 2, 16)); // NOI18N
+        jLabel5.setText(" Abra sua conexão com o Banco de Dados:");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setText("© Táydu Inc | Todos os direitos reservados ");
+
+        jPanel2.setBackground(new java.awt.Color(100, 100, 100));
+        jPanel2.setMaximumSize(new java.awt.Dimension(200, 4));
+        jPanel2.setMinimumSize(new java.awt.Dimension(200, 4));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jStart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jStop)
-                .addGap(78, 78, 78))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(194, 194, 194))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jLabel5))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(75, 75, 75))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(126, 126, 126)))
+                .addComponent(jLabel1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jStart)
-                    .addComponent(jStop))
-                .addGap(111, 111, 111))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel2)
+                                .addGap(29, 29, 29)
+                                .addComponent(jUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(20, 20, 20))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,6 +245,16 @@ public class ControlView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
+        try {
+            this.jLabel7.setText("Status: Online");
+            //Calling the method makeIcon
+            makeIcon();
+            //Setting view to disapears
+            this.setVisible(false);
+        } catch (AWTException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        openConnection = true;
         try {
             //If my threads are not null i return and finalize the action
             if (cpThread != null && hdThread != null && ramThread != null) {
@@ -134,10 +274,12 @@ public class ControlView extends javax.swing.JFrame {
     }//GEN-LAST:event_jStartActionPerformed
 
     private void jStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStopActionPerformed
+        openConnection = false;
         //Setting my threads for null to stop the action
         cpThread = null;
         hdThread = null;
         ramThread = null;
+        this.jLabel7.setText("Status: Offline");
     }//GEN-LAST:event_jStopActionPerformed
 
     /**
@@ -173,8 +315,77 @@ public class ControlView extends javax.swing.JFrame {
         });
     }
 
+    //@Return the application as a service in the taskbar
+    public void makeIcon() throws AWTException {
+        ControlView cv = new ControlView();
+        if (!SystemTray.isSupported()) {
+            System.out.println("SystemTray is not supported");
+            return;
+        }
+
+        SystemTray tray = SystemTray.getSystemTray();
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Image image = toolkit.getImage("C:\\Users\\gabriel.leme\\Documents\\NetBeansProjects\\TayduFramework\\src\\main\\resources\\icone.png");
+
+        PopupMenu menu = new PopupMenu();
+        JOptionPane.showMessageDialog(null, "O sistema está conectado, ativando modo serviço.");
+
+        if (this.openConnection = true) {
+            MenuItem closeConnection = new MenuItem("Close Connection");
+            closeConnection.addActionListener((ActionEvent e) -> {
+                stopConnection();
+            });
+            menu.add(closeConnection);
+        }
+
+        MenuItem abrirInterface = new MenuItem("Abrir Interface");
+        abrirInterface.addActionListener((ActionEvent e) -> {
+            openInterface();
+        });
+        menu.add(abrirInterface);
+
+        MenuItem closeItem = new MenuItem("Close");
+        closeItem.addActionListener((ActionEvent e) -> {
+            System.exit(0);
+        });
+        menu.add(closeItem);
+        TrayIcon icon = new TrayIcon(image, "Taýdu NOC", menu);
+        icon.setImageAutoSize(true);
+
+        tray.add(icon);
+    }
+
+    //Here i create a method to stop the connection. button event doens't work so i create that
+    public void stopConnection() {
+        openConnection = false;
+        //Setting my threads for null to stop the action
+        cpThread = null;
+        hdThread = null;
+        ramThread = null;
+        this.jLabel7.setText("Status: Offline");
+    }
+    
+    //Here i create a method to open the interface the connection. button event doens't work so i create that
+    public void openInterface() {
+        this.setVisible(true);
+        this.jLabel2.setText("Olá, " + User.name + ". Bem vindo ao DMS!");
+        if (openConnection) {
+            this.jLabel7.setText("Status: Online");
+        } else {
+            this.jLabel7.setText("Status: Offline");
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
     public javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jStart;
     private javax.swing.JButton jStop;
     public javax.swing.JLabel jUserName;

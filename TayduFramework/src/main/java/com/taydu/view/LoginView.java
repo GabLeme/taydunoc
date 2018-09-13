@@ -121,7 +121,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel3.setText("Sign In");
 
         txtUser.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(180, 180, 180)));
+        txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(180, 180, 180)));
         txtUser.setMaximumSize(new java.awt.Dimension(285, 30));
         txtUser.setMinimumSize(new java.awt.Dimension(285, 30));
         txtUser.setPreferredSize(new java.awt.Dimension(285, 30));
@@ -139,7 +139,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setText("Senha");
 
         jTextFieldSenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextFieldSenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(180, 180, 180)));
+        jTextFieldSenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(180, 180, 180)));
         jTextFieldSenha.setMaximumSize(new java.awt.Dimension(285, 30));
         jTextFieldSenha.setMinimumSize(new java.awt.Dimension(285, 30));
         jTextFieldSenha.setPreferredSize(new java.awt.Dimension(285, 30));
@@ -152,6 +152,8 @@ public class LoginView extends javax.swing.JFrame {
 
         jBtnLogin.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         jBtnLogin.setText("Login");
+        jBtnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180), 2));
+        jBtnLogin.setContentAreaFilled(false);
         jBtnLogin.setMaximumSize(new java.awt.Dimension(285, 30));
         jBtnLogin.setMinimumSize(new java.awt.Dimension(285, 30));
         jBtnLogin.setPreferredSize(new java.awt.Dimension(285, 30));
@@ -291,7 +293,7 @@ public class LoginView extends javax.swing.JFrame {
             //Comparing text fields with the user registered in database
             if (sv.authenticateUser(txtUser.getText(), jTextFieldSenha.getText())) {
                 //If user is true, i set the jUserName for user name
-                cv.jUserName.setText("Seja bem vindo(a), " + user.name + "!");
+                cv.jLabel2.setText("Olá, " + User.name + ". Bem vindo ao DMS!");
                 //I change the user view for ControlView
                 cv.setVisible(true);
                 //The login view disapears
