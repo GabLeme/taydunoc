@@ -5,6 +5,7 @@ import com.taydu.collector.dao.HardDiskDAO;
 import com.taydu.collector.dao.MemoryDAO;
 import com.taydu.entity.User;
 import java.awt.AWTException;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -12,7 +13,11 @@ import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControlView extends javax.swing.JFrame {
@@ -20,6 +25,8 @@ public class ControlView extends javax.swing.JFrame {
     CpuDAO cp = new CpuDAO();
     HardDiskDAO hd = new HardDiskDAO();
     MemoryDAO my = new MemoryDAO();
+    //Getting the default browser from the user
+    Desktop d = Desktop.getDesktop();
 
     //Creating variable to know if my connection are open
     public boolean openConnection = false;
@@ -242,8 +249,9 @@ public class ControlView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @SuppressWarnings("empty-statement")
     private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
-        int dialogButton = dialogButton = JOptionPane.YES_NO_OPTION;;
+        int dialogButton = JOptionPane.YES_NO_OPTION;;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Você gostária de minimizar o programa?", "Aviso", dialogButton);
         if (dialogResult == 0) {
             try {
@@ -273,8 +281,12 @@ public class ControlView extends javax.swing.JFrame {
             cpThread.start();
             hdThread.start();
             ramThread.start();
-        } catch (Exception e) {
+            //Open the browser in the Dashboard
+            d.browse(new URI("http://www.google.com.br"));
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ControlView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jStartActionPerformed
 
@@ -322,9 +334,8 @@ public class ControlView extends javax.swing.JFrame {
 
     //@Return the application as a service in the taskbar
     public void makeIcon() throws AWTException {
-        ControlView cv = new ControlView();
         if (!SystemTray.isSupported()) {
-            System.out.println("SystemTray is not supported");
+            JOptionPane.showMessageDialog(null, "O seu dispositivo não suporta essa ação.");
             return;
         }
 
