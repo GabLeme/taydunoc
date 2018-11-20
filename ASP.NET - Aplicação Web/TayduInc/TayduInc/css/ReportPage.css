@@ -1,0 +1,40 @@
+
+.menu_horizontal{
+    position: relative;
+    background: #212529;
+    height: 100vh;
+    box-shadow: 0px 0px 10px #000;
+    z-index: 999;
+}
+.menu_vertical{
+    position: relative;
+    background: #212529;
+    height: 50px;
+    box-shadow: 0px 0px 10px #000;
+ 
+}
+
+.painel{
+    background:#b1b5bc; 
+    height: 92vh;
+
+}
+.menu-vertical_links {
+    position: relative;
+    padding: 5px;
+    margin-top: 20px;
+}
+.bloco1{
+    background: white;
+    min-height: 300px;
+    height: auto;
+    margin: 45px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(110, 110, 110);
+   
+}
+.bloco2{
+    background: #b1b5bc;
+    min-height: 30px;
+    height: auto;
+}

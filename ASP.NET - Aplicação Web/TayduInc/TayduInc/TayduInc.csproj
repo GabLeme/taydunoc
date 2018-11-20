@@ -1,0 +1,497 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A9A3211-E7F2-4EB1-BA1E-1338F55F49F2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TayduInc</RootNamespace>
+    <AssemblyName>TayduInc</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about-us.html" />
+    <Content Include="Ajax\CpuPercentual.aspx" />
+    <Content Include="Ajax\HdTempoPercentual.aspx" />
+    <Content Include="Ajax\HdUsoPercentual.aspx" />
+    <Content Include="Ajax\RamPercentual.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdMax.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdMedia.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdMediana.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdMin.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdPrimeiroQuartil.aspx" />
+    <Content Include="Ajax\UsoAtividadeHd\atividadeHdTerceiroQuartil.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuMax.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuMedia.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuMediana.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuMin.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuPrimeiroQuartil.aspx" />
+    <Content Include="Ajax\UsoCpu\cpuTerceiroQuartil.aspx" />
+    <Content Include="Ajax\UsoHd\hdMax.aspx" />
+    <Content Include="Ajax\UsoHd\hdMedia.aspx" />
+    <Content Include="Ajax\UsoHd\hdMediana.aspx" />
+    <Content Include="Ajax\UsoHd\hdMin.aspx" />
+    <Content Include="Ajax\UsoHd\hdPrimeiroQuartil.aspx" />
+    <Content Include="Ajax\UsoHd\hdTerceiroQuartil.aspx" />
+    <Content Include="Ajax\UsoRam\ramMax.aspx" />
+    <Content Include="Ajax\UsoRam\ramMedia.aspx" />
+    <Content Include="Ajax\UsoRam\ramMediana.aspx" />
+    <Content Include="Ajax\UsoRam\ramMin.aspx" />
+    <Content Include="Ajax\UsoRam\ramPrimeiroQuartil.aspx" />
+    <Content Include="Ajax\UsoRam\ramTerceiroQuartil.aspx" />
+    <Content Include="ChatBot.html" />
+    <Content Include="css\about-us.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\canvas.css" />
+    <Content Include="css\computers-dashboard.css" />
+    <Content Include="css\dashboard.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\our-solution.css" />
+    <Content Include="css\RegisterPage.css" />
+    <Content Include="css\ReportPage.css" />
+    <Content Include="css\ReportPage.txt" />
+    <Content Include="css\reset.css" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="img\backgrounds\bg-header-mobile.jpg" />
+    <Content Include="img\backgrounds\bg-header.jpg" />
+    <Content Include="img\backgrounds\box-image-1.jpg" />
+    <Content Include="img\backgrounds\box-image-2.jpg" />
+    <Content Include="img\backgrounds\box-image-3.jpg" />
+    <Content Include="img\ceos\bruna-paz.jpg" />
+    <Content Include="img\ceos\diego-braga.jpg" />
+    <Content Include="img\ceos\gabriel-leme.jpg" />
+    <Content Include="img\ceos\larissa-souza.jpg" />
+    <Content Include="img\ceos\random.png" />
+    <Content Include="img\ceos\rogerio-gastaldello.jpg" />
+    <Content Include="img\dashboard-image.png" />
+    <Content Include="img\dashboard\dashboard-monitor.png" />
+    <Content Include="img\dashboard\icon-atividadeHD.png" />
+    <Content Include="img\dashboard\icon-atividadeRAM.png" />
+    <Content Include="img\dashboard\icon-cpu.png" />
+    <Content Include="img\dashboard\icon-gpu.png" />
+    <Content Include="img\dashboard\icon-hd.png" />
+    <Content Include="img\dashboard\icon-ram.png" />
+    <Content Include="img\dashboard\icon-taxaDownload.png" />
+    <Content Include="img\dashboard\icon-taxaUpload.png" />
+    <Content Include="img\dashboard\pseudo-exit.png" />
+    <Content Include="img\dashboard\pseudo-ia.png" />
+    <Content Include="img\dashboard\pseudo-information.png" />
+    <Content Include="img\dashboard\pseudo-report.png" />
+    <Content Include="img\dashboard\pseudo-support.png" />
+    <Content Include="img\favicons\android-icon-144x144.png" />
+    <Content Include="img\favicons\android-icon-192x192.png" />
+    <Content Include="img\favicons\android-icon-36x36.png" />
+    <Content Include="img\favicons\android-icon-48x48.png" />
+    <Content Include="img\favicons\android-icon-72x72.png" />
+    <Content Include="img\favicons\android-icon-96x96.png" />
+    <Content Include="img\favicons\apple-icon-114x114.png" />
+    <Content Include="img\favicons\apple-icon-120x120.png" />
+    <Content Include="img\favicons\apple-icon-144x144.png" />
+    <Content Include="img\favicons\apple-icon-152x152.png" />
+    <Content Include="img\favicons\apple-icon-180x180.png" />
+    <Content Include="img\favicons\apple-icon-57x57.png" />
+    <Content Include="img\favicons\apple-icon-60x60.png" />
+    <Content Include="img\favicons\apple-icon-72x72.png" />
+    <Content Include="img\favicons\apple-icon-76x76.png" />
+    <Content Include="img\favicons\apple-icon-precomposed.png" />
+    <Content Include="img\favicons\apple-icon.png" />
+    <Content Include="img\favicons\browserconfig.xml" />
+    <Content Include="img\favicons\favicon-16x16.png" />
+    <Content Include="img\favicons\favicon-32x32.png" />
+    <Content Include="img\favicons\favicon-96x96.png" />
+    <Content Include="img\favicons\favicon.ico" />
+    <Content Include="img\favicons\ms-icon-144x144.png" />
+    <Content Include="img\favicons\ms-icon-150x150.png" />
+    <Content Include="img\favicons\ms-icon-310x310.png" />
+    <Content Include="img\favicons\ms-icon-70x70.png" />
+    <Content Include="img\reutilizavel\apple-branco.png" />
+    <Content Include="img\reutilizavel\apple-preto.png" />
+    <Content Include="img\reutilizavel\basic-pack.png" />
+    <Content Include="img\reutilizavel\community-pack.png" />
+    <Content Include="img\reutilizavel\facebook.png" />
+    <Content Include="img\reutilizavel\instagram.png" />
+    <Content Include="img\reutilizavel\linkedin.png" />
+    <Content Include="img\reutilizavel\logotipo-branco.png" />
+    <Content Include="img\reutilizavel\logotipo-preto.png" />
+    <Content Include="img\reutilizavel\play-store-branco.png" />
+    <Content Include="img\reutilizavel\play-store-preto.png" />
+    <Content Include="img\reutilizavel\professional-pack.png" />
+    <Content Include="img\reutilizavel\t+íydu.png" />
+    <Content Include="img\reutilizavel\youtube.png" />
+    <Content Include="index.html" />
+    <Content Include="JavaScript\addGraficos.js" />
+    <Content Include="JavaScript\Analytics.js" />
+    <Content Include="JavaScript\attGraficos.js" />
+    <Content Include="JavaScript\enviaNotificacaoTelegram.js" />
+    <Content Include="js\app-canvas.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\Chart.js" />
+    <Content Include="js\Chart.min.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="js\justgage.js" />
+    <Content Include="js\particles.js" />
+    <Content Include="js\raphael-2.1.4.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Maquinas.aspx" />
+    <Content Include="our-solution.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ajax\CpuPercentual.aspx.cs">
+      <DependentUpon>CpuPercentual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\CpuPercentual.aspx.designer.cs">
+      <DependentUpon>CpuPercentual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\HdTempoPercentual.aspx.cs">
+      <DependentUpon>HdTempoPercentual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\HdTempoPercentual.aspx.designer.cs">
+      <DependentUpon>HdTempoPercentual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\HdUsoPercentual.aspx.cs">
+      <DependentUpon>HdUsoPercentual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\HdUsoPercentual.aspx.designer.cs">
+      <DependentUpon>HdUsoPercentual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Leituras.cs" />
+    <Compile Include="Ajax\RamPercentual.aspx.cs">
+      <DependentUpon>RamPercentual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\RamPercentual.aspx.designer.cs">
+      <DependentUpon>RamPercentual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\AnalyticsAtividadeHd.cs" />
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMax.aspx.cs">
+      <DependentUpon>atividadeHdMax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMax.aspx.designer.cs">
+      <DependentUpon>atividadeHdMax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMedia.aspx.cs">
+      <DependentUpon>atividadeHdMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMedia.aspx.designer.cs">
+      <DependentUpon>atividadeHdMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMediana.aspx.cs">
+      <DependentUpon>atividadeHdMediana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMediana.aspx.designer.cs">
+      <DependentUpon>atividadeHdMediana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMin.aspx.cs">
+      <DependentUpon>atividadeHdMin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdMin.aspx.designer.cs">
+      <DependentUpon>atividadeHdMin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdPrimeiroQuartil.aspx.cs">
+      <DependentUpon>atividadeHdPrimeiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdPrimeiroQuartil.aspx.designer.cs">
+      <DependentUpon>atividadeHdPrimeiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdTerceiroQuartil.aspx.cs">
+      <DependentUpon>atividadeHdTerceiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoAtividadeHd\atividadeHdTerceiroQuartil.aspx.designer.cs">
+      <DependentUpon>atividadeHdTerceiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\AnalyticsCpu.cs" />
+    <Compile Include="Ajax\UsoCpu\cpuMax.aspx.cs">
+      <DependentUpon>cpuMax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMax.aspx.designer.cs">
+      <DependentUpon>cpuMax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMedia.aspx.cs">
+      <DependentUpon>cpuMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMedia.aspx.designer.cs">
+      <DependentUpon>cpuMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMediana.aspx.cs">
+      <DependentUpon>cpuMediana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMediana.aspx.designer.cs">
+      <DependentUpon>cpuMediana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMin.aspx.cs">
+      <DependentUpon>cpuMin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuMin.aspx.designer.cs">
+      <DependentUpon>cpuMin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuPrimeiroQuartil.aspx.cs">
+      <DependentUpon>cpuPrimeiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuPrimeiroQuartil.aspx.designer.cs">
+      <DependentUpon>cpuPrimeiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuTerceiroQuartil.aspx.cs">
+      <DependentUpon>cpuTerceiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoCpu\cpuTerceiroQuartil.aspx.designer.cs">
+      <DependentUpon>cpuTerceiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\AnalyticsUsoHd.cs" />
+    <Compile Include="Ajax\UsoHd\hdMax.aspx.cs">
+      <DependentUpon>hdMax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMax.aspx.designer.cs">
+      <DependentUpon>hdMax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMedia.aspx.cs">
+      <DependentUpon>hdMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMedia.aspx.designer.cs">
+      <DependentUpon>hdMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMediana.aspx.cs">
+      <DependentUpon>hdMediana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMediana.aspx.designer.cs">
+      <DependentUpon>hdMediana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMin.aspx.cs">
+      <DependentUpon>hdMin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdMin.aspx.designer.cs">
+      <DependentUpon>hdMin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdPrimeiroQuartil.aspx.cs">
+      <DependentUpon>hdPrimeiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdPrimeiroQuartil.aspx.designer.cs">
+      <DependentUpon>hdPrimeiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdTerceiroQuartil.aspx.cs">
+      <DependentUpon>hdTerceiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoHd\hdTerceiroQuartil.aspx.designer.cs">
+      <DependentUpon>hdTerceiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\AnalyticsRam.cs" />
+    <Compile Include="Ajax\UsoRam\ramMax.aspx.cs">
+      <DependentUpon>ramMax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMax.aspx.designer.cs">
+      <DependentUpon>ramMax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMedia.aspx.cs">
+      <DependentUpon>ramMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMedia.aspx.designer.cs">
+      <DependentUpon>ramMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMediana.aspx.cs">
+      <DependentUpon>ramMediana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMediana.aspx.designer.cs">
+      <DependentUpon>ramMediana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMin.aspx.cs">
+      <DependentUpon>ramMin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramMin.aspx.designer.cs">
+      <DependentUpon>ramMin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramPrimeiroQuartil.aspx.cs">
+      <DependentUpon>ramPrimeiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramPrimeiroQuartil.aspx.designer.cs">
+      <DependentUpon>ramPrimeiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramTerceiroQuartil.aspx.cs">
+      <DependentUpon>ramTerceiroQuartil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\UsoRam\ramTerceiroQuartil.aspx.designer.cs">
+      <DependentUpon>ramTerceiroQuartil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Maquinas.aspx.cs">
+      <DependentUpon>Maquinas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maquinas.aspx.designer.cs">
+      <DependentUpon>Maquinas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Maquina.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\add-user.svg" />
+    <Content Include="img\dashboard.svg" />
+    <Content Include="img\favicons\manifest.json" />
+    <Content Include="img\package.svg" />
+    <Content Include="img\pointer-bottom.svg" />
+    <Content Include="img\reutilizavel\goTop-arrow-blue.svg" />
+    <Content Include="img\reutilizavel\goTop-arrow-yellow.svg" />
+    <Content Include="img\reutilizavel\logotipo-p&amp;b-mobile.svg" />
+    <Content Include="img\reutilizavel\logotipo-p&amp;b.svg" />
+    <Content Include="img\reutilizavel\logotipo-preto.svg" />
+    <None Include="packages.config" />
+    <Content Include="particles.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53921</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53921/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
