@@ -87,6 +87,7 @@
                             X
          
                         </button>
+
                     </div>
                     <div class="modal-body">
                         <asp:TextBox runat="server" class="input-modal" type="text" ID="txtNomeMaquina" placeholder="Nome da Máquina" />
@@ -197,7 +198,7 @@
                                         <div class="col-lg-12">
                                             <div class="box-identify">
                                                 <p class="box-info"><%#Eval("COD_MAQUINA") %></p>
-                                                <div class="remove-box"><span>X</span></div>
+                                                <div class="remove"><a href="ExclusaoMaquina.aspx?COD_MAQUINA=<%#Eval("COD_MAQUINA") %>">Excluir</a></div>
                                             </div>
                                         </div>
                                     </div>

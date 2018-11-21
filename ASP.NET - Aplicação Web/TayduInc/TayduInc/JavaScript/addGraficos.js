@@ -76,7 +76,7 @@ var graficoUsoHD = new JustGage({
     max: 100,
     donut: true,
     hideMinMax: true,
-    title: "Uso de RAM",
+    title: "Uso HD ",
     titleFontColor: "green",
     titleFontFamily: "Roboto Mono",
     titlePosition: "below",

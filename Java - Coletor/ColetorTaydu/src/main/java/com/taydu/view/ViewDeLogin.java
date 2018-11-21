@@ -103,8 +103,8 @@ public class ViewDeLogin extends javax.swing.JFrame {
          * 
          */
         if (s.autenticaUsuario(jTxtEmail.getText(), jTxtSenha.getText(), Integer.parseInt(jTxtCodMaquina.getText()))) {
-            this.setVisible(false);
             vdc.setVisible(true);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Aparentemente, você digitou algo errado!");
         }

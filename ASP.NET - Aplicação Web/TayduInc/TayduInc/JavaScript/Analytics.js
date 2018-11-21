@@ -26,7 +26,7 @@
 
 ]
 
-setTimeout(() => {
+setInterval(() => {
 
     for (i = 0; i < chamada.length; i++) {
         var xhttp1 = new XMLHttpRequest();

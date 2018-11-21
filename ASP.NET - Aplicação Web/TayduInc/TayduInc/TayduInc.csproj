@@ -110,6 +110,7 @@
     <Content Include="css\ReportPage.txt" />
     <Content Include="css\reset.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="ExclusaoMaquina.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\backgrounds\bg-header-mobile.jpg" />
     <Content Include="img\backgrounds\bg-header.jpg" />
@@ -404,6 +405,13 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExclusaoMaquina.aspx.cs">
+      <DependentUpon>ExclusaoMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExclusaoMaquina.aspx.designer.cs">
+      <DependentUpon>ExclusaoMaquina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

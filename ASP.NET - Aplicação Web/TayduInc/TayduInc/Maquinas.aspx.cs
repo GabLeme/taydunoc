@@ -54,17 +54,24 @@ namespace TayduInc
 
         protected void btnAddMaquina_Click(object sender, EventArgs e)
         {
-            Services sv = new Services();
-            using (SqlConnection con = new SqlConnection(this.connectionString))
+            if (txtNomeMaquina.Text != "")
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO TBL_MAQUINA (COD_MAQUINA, NOME_MAQUINA, COD_USUARIO, ATIVA) VALUES (@COD_MAQUINA, @NOME_MAQUINA, @COD_USUARIO, @ATIVA)", con);
-                cmd.Parameters.AddWithValue("@COD_MAQUINA", sv.RandomNumber(3000, 9999));
-                cmd.Parameters.AddWithValue("@NOME_MAQUINA", txtNomeMaquina.Text);
-                cmd.Parameters.AddWithValue("@COD_USUARIO", Session["cod_usuario"]);
-                cmd.Parameters.AddWithValue("@ATIVA", "OFF");
-                cmd.ExecuteNonQuery();
-                Response.Redirect("/Maquinas.aspx?attMaquinas=true");
+                Services sv = new Services();
+                using (SqlConnection con = new SqlConnection(this.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO TBL_MAQUINA (COD_MAQUINA, NOME_MAQUINA, COD_USUARIO, ATIVA) VALUES (@COD_MAQUINA, @NOME_MAQUINA, @COD_USUARIO, @ATIVA)", con);
+                    cmd.Parameters.AddWithValue("@COD_MAQUINA", sv.RandomNumber(3000, 9999));
+                    cmd.Parameters.AddWithValue("@NOME_MAQUINA", txtNomeMaquina.Text);
+                    cmd.Parameters.AddWithValue("@COD_USUARIO", Session["cod_usuario"]);
+                    cmd.Parameters.AddWithValue("@ATIVA", "OFF");
+                    cmd.ExecuteNonQuery();
+                    Response.Redirect("/Maquinas.aspx?attMaquinas=true");
+                }
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('O nome da máquina não pode ser nulo!');</script>");
             }
         }
     }

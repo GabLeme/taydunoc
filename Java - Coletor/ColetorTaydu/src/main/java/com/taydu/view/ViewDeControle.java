@@ -103,6 +103,7 @@ public class ViewDeControle extends javax.swing.JFrame {
             });
             md.ligarMaquina();
             leiturasDao.start();
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "Essa máquina já tem componentes sendo coletados.");
