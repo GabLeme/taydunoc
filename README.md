@@ -2,7 +2,7 @@
 <h1>NOC System operating by Taýdu</h1>
 This is academic project using OSHI Library and JHardware to create a NOC, if you like this project give us a FeedBack!
 Hope you enjoy.
-
+  <br>
   <br>
   <b><span align="center">Image from colector</span></b>
   <br>
